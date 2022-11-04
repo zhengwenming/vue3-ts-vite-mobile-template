@@ -73,19 +73,13 @@ const handleClickBackButton = () => {
     overflow: hidden;
     -webkit-overflow-scrolling:touch;
   }
-  .fixed{
-    position: fixed;
-    left: 0;
-    top: 0;
-  }
   .content-view{
-    margin-top: 46px;
-    height:calc(100% - 50px - 46px);
+    padding-bottom: 50px;
+    height:calc(100vh - 50px);
   }
-  .tabBox {
-    height: 50px;
+  /* .tabBox {
 		padding-bottom: constant(safe-area-inset-bottom);
 		padding-bottom: env(safe-area-inset-bottom);
-	}
+	} */
   
 </style>

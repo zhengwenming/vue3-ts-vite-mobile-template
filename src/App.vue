@@ -14,7 +14,7 @@
 </script>
 <style scoped>
   .nav-bar{
-    background-color: rgb(25, 137, 250);
+    background-color: #276BFF;
   }
   :deep(.van-nav-bar__arrow){
     color: white;

@@ -3,7 +3,7 @@ const path = require("path");
 //引入文件模块
 const fs = require("fs");
 const parse = require('node-html-parser').parse;
-let pathName = path.join(__dirname, "dist/index.html")
+let pathName = path.join(__dirname, "dlsesp-app-ios/XpdzBase/Resource/vue/index.html")
 fs.readFile(pathName, 'utf8', function(err,html){
     if(err){
         return console.log('读取index.html文件失败'+err.message)
