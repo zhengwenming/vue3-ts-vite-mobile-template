@@ -33,8 +33,9 @@ npm install
 npm run dev
 ```
 
-### Type-Check, Compile and Minify for Production
+### 利用handleHtml.js处理 打包产物dist里面的index.html种的不需要元素or标签
+webview中集成esmodule是一件很麻烦的事情，所以需要使用vite把vue3打包成非esmodule的方式，从而让打包产物支持file协议，能在移动端的wkwebview中正常加载。
 
 ```sh
-npm run build
+node ./handleHtml.js
 ```
