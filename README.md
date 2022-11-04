@@ -42,6 +42,3 @@ node ./handleHtml.js
 
 
 ### 最后把dist文件夹内的文件copy到移动端项目中，比如xcode项目中，用wkwebview去加载就可以了
-
-```sh
-npm r
