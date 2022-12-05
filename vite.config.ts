@@ -4,6 +4,12 @@ import vue from '@vitejs/plugin-vue'
 import Components from 'unplugin-vue-components/vite';
 import { VantResolver } from 'unplugin-vue-components/resolvers';
 import legacy from '@vitejs/plugin-legacy'
+import pxtovw from 'postcss-px-to-viewport'
+const loder_pxtovw = pxtovw({
+  //这里是设计稿宽度 自己修改
+    viewportWidth: 480,
+    viewportUnit: 'vw'
+  })
 // https://vitejs.dev/config/
 export default defineConfig({
   base:"./",
@@ -34,6 +40,11 @@ export default defineConfig({
     Components({
     resolvers: [VantResolver()],
   }),],
+  css: {
+    postcss: {
+      plugins: [loder_pxtovw]
+    }
+  },
   resolve: {
     alias: {
       "@": resolve(__dirname, "./src"),

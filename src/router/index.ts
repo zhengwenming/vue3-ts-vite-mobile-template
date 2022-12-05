@@ -1,6 +1,4 @@
 import { createRouter, createWebHistory,createWebHashHistory } from 'vue-router'
-import Home from '../views/Home.vue'
-import Tabbar from '../components/Tabbar.vue'
 
 const router = createRouter({
   history: createWebHashHistory(),
@@ -9,54 +7,39 @@ const router = createRouter({
       path: '/',
       name: 'tabbar',
       redirect:'/home',
-      component: Tabbar,
+      component:  () => import('../components/Tabbar.vue'),
       meta: {
-        title:'',
+        title: '首页',
+        keepAlive: false,
         hideBackBtn:false
       },
       children:[
         {
           path: '/home',
           name: 'home',
-          component: Home,
-          meta: {
-            title:'首页',
-            hideBackBtn:true
-          }
+          component: () => import('../views/Home.vue'),
+          meta: {title:'首页',hideBackBtn:true,keepAlive: false}
         },{
           path: '/category',
           name: 'category',
           component: () => import('../views/Category.vue'),
-          meta: {
-            title:'分类',
-            hideBackBtn:true
-          }
+          meta: {title:'分类',hideBackBtn:true,keepAlive: false}
         },{
           path: '/shoppingCart',
           name: 'shoppingCart',
           component: () => import('../views/ShoppingCart.vue'),
-          meta: {
-            title:'购物车',
-            hideBackBtn:true
-          }
+          meta: {title:'购物车',hideBackBtn:true,keepAlive: false}
         },{
           path: '/message',
           name: 'message',
           component: () => import('../views/Message.vue'),
-          meta: {
-            title:'消息',
-            hideBackBtn:true
-          }
+          meta: {title:'消息',hideBackBtn:true,keepAlive: false}
         },{
           path: '/mine',
           name: 'mine',
           component: () => import('../views/Mine.vue'),
-          meta: {
-            title:'我的',
-            hideBackBtn:true
-          }
+          meta: {title:'我的',hideBackBtn:true,keepAlive: false}
         },
-        
       ]
     },{
       path: '/about',
@@ -67,11 +50,10 @@ const router = createRouter({
       component: () => import('../views/AboutView.vue'),
       meta: {
         title:'关于',
-        hideBackBtn:false
+        hideBackBtn:false,
+        keepAlive: false
       }
     }
-    
   ]
 })
-
 export default router

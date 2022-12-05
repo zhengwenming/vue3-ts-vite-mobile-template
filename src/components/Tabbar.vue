@@ -1,11 +1,14 @@
 <template>
-  <div class="tabbar-page">
-    <div class="content-view">
-      <router-view></router-view>
+<div class="tabbar-page">
+  <div class="content-view">
+      <keep-alive v-if="$route.meta.keepAlive">
+        <router-view></router-view>
+      </keep-alive>
+      <router-view v-else></router-view>
     </div>
     <div class="tabBox">
-      <van-tabbar v-model="active" :safe-area-inset-bottom="true">
-				<van-tabbar-item v-for="(item, index) in tabbars" :to="item.path" :name="item.path" :key="index" @click="switchTab(index)">
+      <van-tabbar v-model="active" safe-area-inset-bottom fixed route @change="switchTab">
+				<van-tabbar-item v-for="(item, index) in tabbars" :to="item.path" :name="item.path" :key="index">
 					<span>{{item.name}}</span>
 					<template #icon="props">
 							<img :src="props.active ? item.active : item.inactive"/>
@@ -57,7 +60,7 @@ import { ref,reactive } from 'vue'
             inactive: './tabbar/mine-inactive.png',
           },
         ])
-        const switchTab = ((index: number) =>{
+        const switchTab = ((index: number | string) =>{
             console.log(index);
         })
 
@@ -69,13 +72,18 @@ const handleClickBackButton = () => {
 <style scoped>
   .tabbar-page{
     background-color: white;
-    height: 100%;width: 100%;
     overflow: hidden;
-    -webkit-overflow-scrolling:touch;
   }
   .content-view{
-    padding-bottom: 50px;
-    height:calc(100vh - 50px);
+    width: 100%;
+		/* height: 100%; */
+    /* Status bar height on iOS 11.0 */
+   padding-bottom: constant(safe-area-inset-bottom);
+   /* Status bar height on iOS 11+ */
+   margin-bottom: env(safe-area-inset-bottom);
+    height:calc(100vh - env(safe-area-inset-bottom) - env(safe-area-inset-top));
+    /* height:100vh; */
+    background-color: brown;
   }
   /* .tabBox {
 		padding-bottom: constant(safe-area-inset-bottom);

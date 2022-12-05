@@ -49,6 +49,7 @@ import { ref, reactive } from 'vue'
   height: 100%;
   overflow: scroll;
   scroll-behavior: smooth;
+  -webkit-overflow-scrolling:touch;
 }
 
 .item {

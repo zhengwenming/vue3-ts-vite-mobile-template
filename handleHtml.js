@@ -38,5 +38,6 @@ fs.readFile(pathName, 'utf8', function(err,html){
 
     // 将新的组合的内容写入原有index.html
     fs.writeFileSync(pathName, root.toString())
+    console.log('index.html文件处理成功')
     // console.log('222'+root.toString())
 })

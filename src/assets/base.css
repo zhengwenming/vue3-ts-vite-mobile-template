@@ -73,10 +73,25 @@ body {
   -moz-osx-font-smoothing: grayscale;
   overflow: hidden;
   -webkit-overflow-scrolling:touch;
-}
+  /* 禁止copy */
+  -webkit-touch-callout:none;
+  -webkit-user-select:none;
+  -khtml-user-select:none; 
+  -moz-user-select:none; 
+  -ms-user-select:none; 
+  user-select:none; 
 
+
+  /* top留白 */
+   /* Status bar height on iOS 11.0 */
+   padding-top: constant(safe-area-inset-top);
+   padding-bottom: constant(safe-area-inset-bottom);
+   /* Status bar height on iOS 11+ */
+   padding-top: env(safe-area-inset-top);
+   padding-bottom: env(safe-area-inset-bottom);
+
+}
 html {
   position: relative;
-  overflow: hidden;
   background-color: transparent;
 }

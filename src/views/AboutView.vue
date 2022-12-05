@@ -1,13 +1,13 @@
 <template>
   <div class="page">
-    <h1 class="item">This is an about page</h1>
+    <h1 class="item">This is an about page!!!!!!!!!!!</h1>
   </div>
 </template>
 
 <style scoped>
   .page {
     height: 100%;
-    background-color: moccasin;
+    background-color: magenta;
   }
   .item {
   background-color: aqua;
